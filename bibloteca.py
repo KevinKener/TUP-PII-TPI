@@ -99,10 +99,18 @@ def prestar_ejemplar_libro():
 
     return None
 
+def devolver_ejemplar_libro():
 
+    codigoIngresado = input("Ingrese el código del libro: ")
+    libro = buscar_libro_por_codigo(codigoIngresado)
+    
+    if libro is not None:
+        if libro['cantEjPrestados'] > 0:
+            libro['cantEjPrestados'] -= 1
+            print("Devolución confirmada.")
+        else:
+            print("Este libro no fue prestado.")
+    else:
+        print("Error: el libro no existe.")
 
-
-
-
-
-
+    return None
